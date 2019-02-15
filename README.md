@@ -1,7 +1,7 @@
-# HrabbitAdmin后台管理
+# Flagle后台管理
 
 #### 项目介绍
-HrabbitAdmin基于SpringBoot 2.X,构建一个能够快速开发的框架，整合SpringMVC + Shiro + MybatisPlus + Beetl!HrabbitAdmin项目代码简洁，注释丰富，上手容易，同时HrabbitAdmin包含许多基础模块(用户管理，角色管理，部门管理，字典管理等模块，后续还在开发...)，可以直接作为一个后台管理系统的脚手架!
+Flagle基于SpringBoot 2.X,构建一个能够快速开发的框架，整合SpringMVC + Shiro + MybatisPlus + Beetl!Flagle项目代码简洁，注释丰富，上手容易，同时Flagle包含许多基础模块(用户管理，角色管理，部门管理，字典管理等模块，后续还在开发...)，可以直接作为一个后台管理系统的脚手架!
 
 #### Beetl对前台页面的拆分与包装
 
