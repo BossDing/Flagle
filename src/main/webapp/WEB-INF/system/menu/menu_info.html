@@ -1,0 +1,144 @@
+@layout("/common/_container.html"){
+<!-- 插件 CSS -->
+<link rel="stylesheet" href="/static/common/assets/vendor/nestable/nestable.css">
+<link rel="stylesheet" href="/static/common/assets/css/menu.css">
+<div class="page-aside-fixed page-aside-left">
+    <div class="page page-full bg-white animation-fade page-menu">
+        <div class="page-aside">
+            <div class="page-aside-switch">
+                <i class="icon wb-chevron-left" aria-hidden="true"></i>
+                <i class="icon wb-chevron-right" aria-hidden="true"></i>
+            </div>
+            <div class="page-aside-inner h-full mCustomScrollbar _mCS_1 mCS-autoHide" data-plugin="mCustomScrollbar">
+                <div id="mCSB_1" class="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside" tabindex="0"
+                     style="max-height: none;">
+                    <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                        <div class="page-aside-section">
+                            <h5 class="page-aside-title">顶部菜单</h5>
+                            <div class="list-group has-actions top-menu" data-sortable-id="0" aria-dropeffect="move" id="topMenu">
+                            </div>
+                        </div>
+                        <div class="page-aside-section d-none d-sm-block">
+                            <a class="list-group-item" href="javascript:;" id="addMenuToggle">
+                                <i class="icon wb-plus" aria-hidden="true"></i> <span>添加新菜单</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical" style="display: block;">
+                        <div class="mCSB_draggerContainer">
+                            <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 0px; height: 457px; top: 0px; display: block; max-height: 461px;">
+                                <div class="mCSB_dragger_bar" style="line-height: 0px;"></div>
+                            </div>
+                            <div class="mCSB_draggerRail"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-main has-submenu nav-submenu h-full">
+
+            <div class="page-content h-full">
+                <div class="row h-full">
+                    <div class="col-lg-7 h-full">
+                        <nav class="h-full mCustomScrollbar _mCS_2 mCS-autoHide" id="menuTree"
+                             data-plugin="mCustomScrollbar">
+                            <div id="mCSB_2" class="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside" tabindex="0"
+                                 style="max-height: none;">
+                                <div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                                    <div class="dd menu-tree" data-max-depth="4">
+                                        <ol class="dd-list animation-fade">
+                                            <li class="dd-item dd-item-alt" data-id="11171" data-rank="2" data-type="" data-name="页面示例" data-url="" data-icon="">
+                                                <div class="dd-handle"></div>
+
+                                                <div class="dd-content active">
+
+                                                    <span class="menu-name"> 页面示例</span>
+                                                    <span class="float-right fa-angle-right"></span>
+                                                </div>
+
+                                                <ol class="dd-list">
+
+                                                    <li class="dd-item dd-item-alt" data-id="11172" data-rank="3"
+                                                        data-type="" data-name="首页示例" data-url="" data-icon="fa-home">
+                                                        <div class="dd-handle"></div>
+                                                        <div class="dd-content">
+                                                            <span class="menu-name"><i class="menu-icon fa-home"></i> 首页示例</span>
+                                                            <span class="float-right fa-angle-right"></span>
+                                                        </div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div id="mCSB_2_scrollbar_vertical"
+                                     class="mCSB_scrollTools mCSB_2_scrollbar mCS-dark mCSB_scrollTools_vertical"
+                                     style="display: block;">
+                                    <div class="mCSB_draggerContainer">
+                                        <div id="mCSB_2_dragger_vertical" class="mCSB_dragger"
+                                             style="position: absolute; min-height: 0px; top: 0px; display: block; height: 101px; max-height: 356px;">
+                                            <div class="mCSB_dragger_bar" style="line-height: 0px;"></div>
+                                        </div>
+                                        <div class="mCSB_draggerRail"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-lg-5 d-none d-sm-block d-md-block h-full">
+                        <nav class="h-full">
+                            <div class="menu-info">
+                                <div class="menu-box animation-fade">
+                                    <h4>页面示例
+
+                                        <button type="button"
+                                                class="btn btn-pure btn-default btn-sm icon fa-trash-o float-right delete-submenu"></button>
+
+                                    </h4>
+                                    <hr>
+                                    <div class="form fv-form fv-form-bootstrap">
+                                        <form id="compiler_submenu">
+                                            <div class="form-group">
+
+                                                <label class="col-form-label">名称：</label>
+                                                <input type="text" class="form-control" name="submenu_name"
+                                                       placeholder="菜单名称" value="页面示例">
+
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="btn-actions text-right">
+                    <div class="btn-group dropup" role="group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" id="addChlidMenu" data-toggle="dropdown" aria-expanded="false">
+                            新增菜单
+                        </button>
+                        <div class="dropdown-menu animate" aria-labelledby="addChlidMenu" role="menu"
+                             x-placement="top-start"
+                             style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, -6px, 0px);">
+                            <a class="dropdown-item add-submenu after" href="javascript:;" role="menuitem">当前菜单之后</a>
+                            <a class="dropdown-item add-submenu append" href="javascript:;" role="menuitem">当前菜单的里面</a>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success" id="saveChlidMenu">
+                        全部保存
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/common/assets/vendor/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/static/modular/menu/menu_info.js"></script>
+<script type="text/javascript">
+    function clickItem(id) {
+      alert(id);
+    }
+</script>
+@}

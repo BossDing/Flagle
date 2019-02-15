@@ -1,0 +1,46 @@
+@layout("/common/_container.html"){
+<div class="container-fluid">
+    <form id="roleForm" novalidate="novalidate">
+        <div class="modal-body">
+            <div class="p-10">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label">角色名称：</label>
+                        <input type="hidden" name="id" id="id" value="${role.id}">
+                        <input type="text" class="form-control mt-5" name="name" value="${role.name}" id="name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label">角色编码：</label>
+                        <input type="text" class="form-control mt-5" name="code" value="${role.code}" id="code">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label">所属角色：</label>
+                        <div class="mt-5">
+                            <input class="form-control" readonly="readonly" onclick="RoleAddInfo.showRoleTree();" id="parentName" value="${role.parentName}" name="parentName" placeholder="请选择上级角色">
+                            <input type="hidden" name="parentId" value="${role.parentId}" id="parentId">
+                            <div class="dropdown-menu dropdown-dep-tree" id="roleTreeView" style="display: none;left: 8px;width: 96%;">
+                                <div class="choose-dep-tree" id="roleTree"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label">所属部门：</label>
+                        <div class="mt-5">
+                            <input class="form-control" readonly="readonly" onclick="RoleAddInfo.showDeptTree();" id="deptName" name="deptName" value="${role.deptName}" placeholder="请选择部门">
+                            <input type="hidden" name="deptId" value="${role.deptId}" id="deptId">
+                            <div class="dropdown-menu dropdown-dep-tree" id="deptTreeView" style="display: none;left: 8px;width: 96%;">
+                                <div class="choose-dep-tree" id="deptTree"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button class="btn btn-primary" onclick="RoleAddInfo.submitUpdateRole();">确定</button>
+        <button type="button" class="btn btn-default" onclick="RoleAddInfo.close();" data-dismiss="modal">取消</button>
+    </div>
+</div>
+<script src="/static/modular/role/role_add.js"></script>
+@}

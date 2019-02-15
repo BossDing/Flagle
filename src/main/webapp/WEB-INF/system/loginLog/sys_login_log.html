@@ -1,0 +1,47 @@
+@layout("/common/_container.html"){
+<div class="page-aside-fixed page-aside-left">
+    <div class="page-container" id="admui-pageContent">
+        <div class="page page-full animation-fade page-logs">
+            <div class="page-header">
+                <h1 class="page-title">登录日志</h1>
+                <div class="page-header-actions">
+                    <button type="button" class="btn btn-icon btn-info collapsed" data-toggle="collapse"
+                            data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                        <i class="icon fa-filter"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="collapse" id="collapseFilter" aria-expanded="true">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="inputInlineUsername">日志类型</label>
+                                    <input type="text" class="form-control" id="logName" autocomplete="off" placeholder="日志名称">
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-success" onclick="LoginLogInfo.search();">
+                                        <i class="icon fa-search"></i> 查找
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-body">
+                        <table class="table table-hover text-nowrap table-striped width-full margin-vertical-10" id="loginLogTable">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-loading vertical-align text-center" style="display: none">
+        <div class="page-loader loader-default loader vertical-align-middle" data-type="default"></div>
+    </div>
+</div>
+<script src="/static/modular/loginLog/login_log_info.js"></script>
+@}

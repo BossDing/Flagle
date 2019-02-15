@@ -1,0 +1,117 @@
+@layout("/common/_container.html"){
+<link rel="stylesheet" href="/static/common/assets/css/account.css">
+<div class="page animation-fade page-account">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card card-shadow text-center">
+                    <div class="card-header">
+                        <div class="card-header-content">
+                            <a class="avatar avatar-lg" href="javascript:;">
+                                <img src="${user.avatar}" alt="admin">
+                            </a>
+                            <h4 class="account-user">${user.name}</h4>
+                            <p>上次登录<span style="color: #ed6337">${newLoginTime}</span></p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row no-space">
+                            <div class="col-4">
+                                <strong class="account-stat-count">${loginCount}</strong>
+                                <span>登录</span>
+                            </div>
+                            <div class="col-4">
+                                <strong class="account-stat-count msg-number">0</strong>
+                                <span>消息</span>
+                            </div>
+                            <div class="col-4">
+                                <strong class="account-stat-count log-number">${loginCount}</strong>
+                                <span>日志</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="panel">
+                    <div class="panel-body nav-tabs-animate">
+                        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                            <li class="nav-item news accout-msg" role="presentation">
+                                <a class="nav-link active" href="#message" aria-controls="message" role="tab"
+                                   data-toggle="tab">
+                                    <i class="icon fa-comment-o" aria-hidden="true"></i> 消息
+                                    <span class="badge badge-danger"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item account-log">
+                                <a class="nav-link" href="#log" aria-controls="log" role="tab" data-toggle="tab">
+                                    <i class="icon fa-file-text-o" aria-hidden="true"></i> 日志
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#password" aria-controls="password" role="tab"
+                                   data-toggle="tab">
+                                    <i class="icon fa-key" aria-hidden="true"></i> 密码
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content mt-15">
+                            <div class="tab-pane animation-slide-left tab-message active" role="tabpanel" id="message">
+                                <div id="messageLists">
+                                    <p class="text-center h-150 vertical-align no-message">
+                                        <small class="vertical-align-middle opacity-four">没有新消息</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane animation-slide-left" role="tabpanel" id="log">
+                                <div class="table-responsive">
+                                    <div id="logList_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- 登录Table-->
+                                                <table class="table table-hover text-nowrap table-striped width-full margin-vertical-10" id="loginLogTable">
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane animation-slide-left" role="tabpanel" id="password">
+                                <form id="accountMsg" class="message-form" method="post" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <h5>修改密码</h5>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="oldPwd" class="form-control" placeholder="请输入原来的密码"
+                                               autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="strength-container"><input type="password" name="newPwd"
+                                                                               class="form-control strength-input"
+                                                                               id="newPwd" placeholder="请输入新密码"
+                                                                               autocomplete="off"
+                                                                               data-plugin="strength">
+                                            <div class="strength-meter">
+                                                <div class="strength-score"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirm" class="form-control"
+                                               placeholder="请再次输入新密码" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">确认修改</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/modular/user/user_detail.js"></script>
+@}

@@ -1,0 +1,76 @@
+@layout("/common/_container.html"){
+<div class="container-fluid">
+    <form id="userForm" novalidate="novalidate">
+        <div class="modal-body">
+            <div class="form form-horizontal mt-20">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="baseInfo" role="tabpanel">
+                        <div class="form-group row">
+                            <label for="loginName" class="col-form-label col-md-3">登录账号：</label>
+                            <div class="col-md-8">
+                                <input type="hidden" id="id" value="${user.id}">
+                                <input type="text" class="form-control" id="loginName" value="${user.loginName}" name="loginName" placeholder="请输入登录账号" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-form-label col-md-3">姓名：</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" id="name" value="${user.name}" name="name" placeholder="请输入姓名" autocomplete="off">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="radio-custom radio-default inline-block mr-15">
+                                    <input type="radio" id="sexMale" name="sex" value="1" checked="checked">
+                                    <label for="sexMale">男</label>
+                                </div>
+                                <div class="radio-custom radio-default inline-block">
+                                    <input type="radio" id="sexFemale" name="sex" value="2">
+                                    <label for="sexFemale">女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-form-label col-md-3">手机号：</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="phone" value="${user.phone}" name="phone" placeholder="请输入手机号" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="department" class="col-form-label col-md-3">所属部门：</label>
+                            <div class="col-md-8">
+                                <input class="form-control" readonly="readonly" onclick="UserAddInfo.showDeptTree();" id="department" value="${user.deptName}" placeholder="请选择部门">
+                                <input type="hidden" name="deptId" id="deptId" value="${user.deptId}">
+                                <div class="dropdown-menu dropdown-dep-tree" id="deptTreeView" style="display: none;left: 8px;width: 96%;">
+                                    <div class="choose-dep-tree" id="deptTree"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="remarkMsg" class="col-form-label col-md-3">角色信息：</label>
+                            <div class="col-md-8">
+                                <select id="role" class="select2" multiple="multiple">
+                                    <optgroup label='${selectNode.name}'>
+                                        @for(role in selectNode.linkedList){
+                                            <option value="${role.id}">${role.name}</option>
+                                        @}
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button class="btn btn-primary" onclick="UserAddInfo.submitUpdateUser();">确定</button>
+        <button type="button" class="btn btn-default" onclick="UserAddInfo.close();" data-dismiss="modal">取消</button>
+    </div>
+</div>
+<script type="text/javascript">
+    //赋值角色下拉框
+    var roleIds = '${user.roleIds}';
+    var arr = roleIds.split(',');
+    $('#role').val(arr).trigger('change');
+</script>
+<script src="/static/modular/user/user_add.js"></script>
+@}

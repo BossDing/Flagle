@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrabbit.admin.modual.system.mapper.SysMenuMapper">
+    <!--
+        根据角色ids获取资源信息
+    -->
+    <select id="findPermissionByRoleIds" resultType="com.hrabbit.admin.core.node.MenuNode">
+        SELECT
+        m1.id AS id,
+        m1.icon AS icon,
+        m1.CODE AS `code`,
+        m1.select_def AS `selectDef`,
+        (CASE WHEN (m1.PARENT_ID=-1 OR m1.PARENT_ID IS NULL) THEN 0 ELSE m1.PARENT_ID END) AS parentId,
+        m1.title AS NAME,
+        m1.href AS url,
+        (CASE WHEN (m1.TYPE='menu') THEN 1 ELSE 0 END) AS menus,
+        m1.order_num AS num
+        FROM sys_menu m1
+        LEFT JOIN sys_menu m2
+        ON m2.id=m1.parent_id
+        INNER JOIN (
+        SELECT
+        ID
+        FROM sys_menu
+        WHERE ID IN (
+        SELECT
+        rela.resource_id
+        FROM sys_resource_role rela
+        WHERE rela.role_id IN
+        <foreach collection="roleIds" index="index" item="i" open="(" separator="," close=")">
+            #{i}
+        </foreach>
+        ))m3
+        ON m1.id=m3.id
+        WHERE
+        m1.TYPE='menu'
+        AND
+        m1.enabled=0
+        ORDER BY m1.order_num ASC
+    </select>
+
+
+    <!--
+        根据父id查询按钮信息
+    -->
+    <select id="findMenuByParentId" resultType="com.hrabbit.admin.modual.system.bean.SysMenu">
+        SELECT
+        *
+        from
+        sys_menu
+        WHERE
+        parent_id=#{parentId}
+        and
+        enabled=0
+    </select>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrabbit.admin.modual.system.mapper.SysDeptMapper">
+    <!--
+        查询部门数据
+    -->
+    <select id="findDeptList" resultType="com.hrabbit.admin.modual.system.bean.SysDept">
+        SELECT
+        *
+        FROM
+        sys_dept
+    </select>
+
+</mapper>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Flagle后台管理</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Hrabbit-Admin">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- 移动设备 viewport -->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+		<meta name="author" content="hrabbit.xin">
+		<!-- 360浏览器默认使用Webkit内核 -->
+		<meta name="renderer" content="webkit">
+		<!-- 禁止搜索引擎抓取 -->
+		<meta name="robots" content="nofollow">
+		<!-- 禁止百度SiteAPP转码 -->
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<link rel="icon" href="/static/common/assets/images/favicon.ico">
+
+		<!-- 样式 -->
+		<link rel="stylesheet" href="/static/common/assets/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/common/assets/themes/classic/base/css/index.css" id="admui-siteStyle">
+
+		<!-- 图标 CSS-->
+		<link rel="stylesheet" href="/static/common/assets/fonts/font-awesome/font-awesome.css">
+		<link rel="stylesheet" href="/static/common/assets/fonts/web-icons/web-icons.css">
+
+		<!-- 插件 CSS -->
+		<link rel="stylesheet" href="/static/common/assets/vendor/animsition/animsition.css">
+		<link rel="stylesheet" href="/static/common/assets/vendor/nprogress/nprogress.css">
+		<link rel="stylesheet" href="/static/common/assets/vendor/mCustomScrollbar/jquery.mCustomScrollbar.css">
+
+        <link rel="stylesheet" href="/static/common/assets/vendor/bootstrap-table/bootstrap-table.css">
+        <link rel="stylesheet" href="/static/common/assets/vendor/bootstrap-select/bootstrap-select.css">
+        <link type="text/css" rel="stylesheet" href="/static/common/assets/vendor/layer/theme/default/layer.css">
+
+		<!-- 插件 -->
+		<script src="/static/common/assets/vendor/jquery/jquery.min.js"></script>
+		<script src="/static/common/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+		<script src="/static/common/assets/vendor/lodash/lodash.min.js"></script>
+		<script src="/static/common/assets/vendor/breakpoints/breakpoints.min.js"></script>
+		<!-- 核心  -->
+		<script src="/static/common/assets/themes/global/js/core.js"></script>
+		<script src="/static/common/assets/themes/global/js/configs/site-configs.js"></script>
+		<script src="/static/common/assets/themes/global/js/components.js"></script>
+		<!-- 布局 -->
+		<script src="/static/common/assets/themes/classic/base/js/site.js"></script>
+		<script src="/static/common/assets/themes/classic/base/js/sections/content-tabs.js"></script>
+		<script>
+			"use strict";
+			Breakpoints();
+		</script>
+	</head>
+
+	<body class="site-contabs-open site-menubar-unfold" data-theme="base">
+
+        <!-- 菜单部分 -->
+        @include("/common/_nav.html"){}
+
+        <!-- 内容部分 -->
+        @include("/common/_page.html"){}
+
+        <!-- 底部部分 -->
+        @include("/common/_footer.html"){}
+
+		<!-- 插件 -->
+		<script src="/static/common/assets/themes/global/js/plugins/responsive-tabs.js"></script>
+		<script src="/static/common/assets/vendor/ashoverscroll/jquery-asHoverScroll.min.js"></script>
+		<script src="/static/common/assets/vendor/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="/static/common/assets/vendor/screenfull/screenfull.min.js"></script>
+	</body>
+
+</html>

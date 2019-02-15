@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrabbit.admin.modual.system.mapper.SysLoginLogMapper">
+    <!--
+        查询所有的Log日志
+    -->
+    <select id="listLog" resultType="com.hrabbit.admin.modual.system.bean.SysLoginLog">
+        SELECT
+        *
+        FROM
+        sys_login_log
+        where 1=1
+        <if test="logName!=null and logName!=''">
+            and log_name like concat('%',#{logName},'%')
+        </if>
+        order by create_time desc
+    </select>
+
+    <!--
+        根据用户id获取用户的日志数量
+    -->
+    <select id="findLoginCountByUserId" resultType="Integer">
+        SELECT
+        count(*)
+        FROM
+        sys_login_log
+        where
+        user_id=#{userId}
+    </select>
+
+    <!--
+       根据用户id获取用户的日志数量
+    -->
+    <select id="findNewLoginTimeByUserId" resultType="String">
+        SELECT
+        DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s')
+        FROM
+        sys_login_log
+        where
+        user_id=#{userId}
+        ORDER BY create_time desc limit 1
+    </select>
+
+</mapper>

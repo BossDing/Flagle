@@ -1,0 +1,23 @@
+.jq-icon-info {
+    background-color: #009efb;
+    color: #fff
+}
+
+.jq-icon-success {
+    background-color: #55ce63;
+    color: #fff
+}
+
+.jq-icon-error {
+    background-color: #f62d51;
+    color: #fff
+}
+
+.jq-icon-warning {
+    background-color: #ffbc34;
+    color: #fff
+}
+
+.alert-rounded {
+    border-radius: 60px
+}

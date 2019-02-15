@@ -1,0 +1,99 @@
+@layout("/common/_container.html"){
+<link rel="stylesheet" href="/static/common/assets/css/home.css">
+<link rel="stylesheet" href="/static/common/assets/fonts/themify/themify.css">
+<div class="page-container" id="admui-pageContent">
+    <div class="page animation-fade page-index">
+        <div class="page-content">
+            <div class="media account-info mt-5">
+                <div class="avatar avatar-online d-none d-sm-block mr-15">
+                    <img src="/static/common/assets/images/avatar.png" alt="admin">
+                    <i class="avatar avatar-busy"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="mb-5">
+                    欢迎您，<span>${user.name}</span>
+                    <small class="text-muted"><span>${user.deptName}</span>&nbsp;&nbsp;<span>一般人员</span>&nbsp;&nbsp;</small>
+                </h4>
+                    <p>
+                        <i class="icon icon-color wb-bell" aria-hidden="true"></i> 这是您第<span>${loginCount}</span>次登录，上次登录日期：<span>${newLoginTime}</span>，详细信息请查看
+                        <a href="/loginLog/" target="_blank">日志</a>
+                        ，如果不是您本人登录，请及时
+                        <a href="/user/updatePassword">修改密码</a>
+                        。
+                    </p>
+                </div>
+                <div class="media-right">
+                    <a href="/user/userDetail" target="_blank" class="btn btn-outline btn-success btn-outline btn-sm">账户管理</a>
+                </div>
+            </div>
+            <div class="row mt-10" data-plugin="matchHeight" data-by-row="true">
+                <div class="col-lg-7">
+                    <div class="panel introduce-info">
+                        <div class="panel-heading">
+                            <ul class="panel-actions panel-actions-keep">
+                                <li>
+                                    <a href="http://www.hrabbit.xin" target="_blank">更多</a>
+                                </li>
+                            </ul>
+                            <h1 class="panel-title">基本介绍</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="media">
+                                <div class="media-left">
+                                    @if(!tool.isEmpty(user.avatar)){
+                                        <img src="${user.avatar}" width="100%" alt="...">
+                                    @}else{
+                                        <img src="/static/common/assets/images/avatar.png" width="100%" alt="...">
+                                    @}
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Hrabbit-Admin 通用管理系统快速开发框架</h3>
+                                    <ul class="list-group list-group-full">
+                                        <li class="list-group-item">Hrabbit-Admin 是一个基于最新 Spring Boot 技术的企业级通用管理系统快速开发框架，可以帮助企业极大的提高工作效率，节省开发成本，提升品牌形象。
+                                        </li>
+                                        <li class="list-group-item">您可以 Hrabbit-Admin 为基础，快速开发各种MIS系统，如CMS、OA、CRM、ERP、POS等。</li>
+                                        <li class="list-group-item">Hrabbit-Admin 涵盖了用户管理、角色管理、字典参数管理等相关功能</li>
+                                    </ul>
+
+                                    <div>
+                                        <a href="http://www.hrabbit.xin" class="btn btn-success btn-sm btn-outline btn-round" target="_blank">
+                                            返回官网
+                                        </a>
+                                        <a href="http://www.hrabbit.xin" class="btn btn-danger btn-sm btn-outline btn-round" target="_blank">
+                                            开发文档
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="panel changelog-info">
+                        <div class="panel-heading">
+                            <ul class="panel-actions panel-actions-keep">
+                                <li>
+                                    <a href="http://www.hrabbit.xin" target="_blank">更多</a>
+                                </li>
+                            </ul>
+                            <h1 class="panel-title">版本信息</h1>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="time-line">
+                                <li>
+                                    <time datatime="2018-12-27">2018-12-27</time>
+                                    <h5>Spring Boot2.0整合Shiro成功！</h5>
+                                </li>
+                                <li>
+                                    <time datatime="2018-11-20">2018-11-20</time>
+                                    <h5>Hrabbit-Admin 正式立项</h5>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@}

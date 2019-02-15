@@ -1,0 +1,107 @@
+@layout("/common/_container.html"){
+<div class="page-aside-fixed page-aside-left">
+    <div class="page page-full animation-fade page-role">
+        <div class="page-aside">
+            <div class="page-aside-switch">
+                <i class="icon wb-chevron-left" aria-hidden="true"></i>
+                <i class="icon wb-chevron-right" aria-hidden="true"></i>
+            </div>
+            <div class="page-aside-inner h-full">
+                <section class="page-aside-section">
+                    <div class="page-aside-top px-20">
+                        <div class="input-search">
+                            <button type="submit" class="input-search-btn btn-icon">
+                                <i class="icon wb-search" aria-hidden="true"></i>
+                            </button>
+                            <input type="text" class="form-control" id="departmentSearch" name="" placeholder="搜索部门">
+                        </div>
+                    </div>
+                </section>
+                <section class="page-aside-section role-tree">
+                    <div class="h-full mCustomScrollbar _mCS_1 mCS-autoHide" data-plugin="mCustomScrollbar">
+                        <div id="mCSB_1" class="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside" tabindex="0"
+                             style="max-height: none;">
+                            <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;"
+                                 dir="ltr">
+                                <!-- 初始化Ztree-->
+                                <div id="deptTree" class="jstree jstree-3 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="3003" aria-busy="false"></div>
+                            </div>
+                            <div id="mCSB_1_scrollbar_vertical"
+                                 class="mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical"
+                                 style="display: block;">
+                                <div class="mCSB_draggerContainer">
+                                    <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
+                                         style="position: absolute; min-height: 0px; top: 0px; height: 186px; display: block; max-height: 256px;">
+                                        <div class="mCSB_dragger_bar" style="line-height: 0px;"></div>
+                                    </div>
+                                    <div class="mCSB_draggerRail"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="page-main">
+            <div class="page-header page-header-bordered mb-0">
+                <div class="page-title" id="depMsg">
+                    <span>系统角色(2)</span>
+                </div>
+                <div class="page-header-actions">
+                    <div class="fixed-table-toolbar">
+                        <button class="btn pr-10 btn-md btn-default btn-outline add-member" onclick="RoleInfo.openAddRole();">
+                            <i class="icon fa-plus"></i>
+                            <span>添加角色</span>
+                        </button>
+
+                        <button class="btn pr-10 btn-md btn-default btn-outline update-member" onclick="RoleInfo.openUpdateRole();">
+                            <i class="icon fa-minus"></i>
+                            <span>修改角色</span>
+                        </button>
+
+                        <button class="btn pr-10 btn-md btn-default btn-outline update-member" onclick="RoleInfo.openDeleteRole();">
+                            <i class="icon fa-minus"></i>
+                            <span>移除角色</span>
+                        </button>
+
+                        <button class="btn pr-10 btn-md btn-default btn-outline update-member" onclick="RoleInfo.openPermission();">
+                            <i class="icon fa-minus"></i>
+                            <span>分配权限</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content p-0 bg-white">
+                <div id="roleMemberTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="bs-bars float-left">
+                                <div class="export btn-group">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <label class="col-form-label" for="inputInlineUsername">角色名称</label>
+                                            <input type="text" class="form-control" id="roleName" autocomplete="off" placeholder="角色名称">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" onclick="RoleInfo.search();" class="btn btn-primary">查询</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-sm-12">
+                            <!-- 初始化表格数据 -->
+                            <table id="roleTable" class="table table-hover table-striped"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/modular/role/role_info.js"></script>
+@}

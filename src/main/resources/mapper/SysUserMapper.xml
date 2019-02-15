@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrabbit.admin.modual.system.mapper.SysUserMapper">
+    <!--
+        根据登录名称获取用户信息
+    -->
+    <select id="findByLoginName" resultType="com.hrabbit.admin.modual.system.bean.SysUser">
+        SELECT
+        *
+        FROM
+        sys_user
+        WHERE
+        login_name=#{loginName}
+        and enabled!=3
+    </select>
+
+
+    <!--
+        查询所有的用户
+    -->
+    <select id="findListUser" resultType="com.hrabbit.admin.modual.system.bean.SysUser">
+        SELECT
+        su.*
+        FROM
+        sys_user su
+        LEFT JOIN
+        sys_role_user sg
+        ON
+        su.id = sg.user_id
+        WHERE
+        su.enabled!=3
+        <if test="loginName!=null and loginName!=''">
+            AND
+            login_name=#{loginName}
+        </if>
+        <if test="roleId!=null and roleId!=''">
+            AND
+            sg.role_id=#{roleId}
+        </if>
+        <if test="createTime!=null and createTime!=''">
+            AND
+            date_format(su.create_time,'%Y-%m-%d') = #{createTime}
+        </if>
+        group by sg.user_id order by su.create_time desc
+    </select>
+
+</mapper>
